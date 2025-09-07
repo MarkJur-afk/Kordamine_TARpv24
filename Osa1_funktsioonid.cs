@@ -72,7 +72,7 @@ namespace Kordamine_TARpv24
             {
                 hinn = "Tasuta";
             }
-            else if (vanus > 5 && vanus < 15)
+            else if (vanus > 6 && vanus < 15)
             {
                 hinn = "Lapse pilet";
             }
@@ -86,11 +86,7 @@ namespace Kordamine_TARpv24
             }
             else if (vanus < 0 && vanus > 100)
             {
-                hinn = "viga andmetega";
-            }
-            else
-            {
-                hinn = "???";
+                hinn = "Midagi laks valesti";
             }
             return hinn;
         }
@@ -112,6 +108,20 @@ namespace Kordamine_TARpv24
         {
             return pikkus * laius;
         }
+        public static string Temperature(int temp)
+        {
+            string grad = "";
+            if (temp > 18)
+            {
+                grad = "Kummem kui 18 graadi";
+            }
+            else
+            {
+                grad = "Temperatuur on alla 18 kraadi";
+            }
+            return grad;
+        }
+        
 
     }
     }

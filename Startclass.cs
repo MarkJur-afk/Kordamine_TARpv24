@@ -4,19 +4,21 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
+using System.Reflection.Metadata.Ecma335;
+
 namespace Kordamine_TARpv24
 {
     internal class Startclass
     {
         public static void Main(string[] args)
         {
+            //1.
             Console.WriteLine("Mis on sinu nimi");
             string nimi = Console.ReadLine();
             if (nimi.ToLower() == "juku")
             {
                 Console.WriteLine("Kui vana sa oled");
                 int vanus = int.Parse(Console.ReadLine());
-                string pilet = Osa1_funktsioonid.Kino(vanus);
                 string hinn = Osa1_funktsioonid.Kino(vanus);
                 Console.WriteLine($"Sinu pilet on {hinn}");
             }
@@ -27,7 +29,7 @@ namespace Kordamine_TARpv24
 
 
 
-
+            //2.
             Console.WriteLine("Mis on sinu nimi");
             string nimi1 = Console.ReadLine();
             Console.WriteLine("Aga mis on sinu nimi?");
@@ -42,7 +44,7 @@ namespace Kordamine_TARpv24
             }
 
 
-
+            //3.
             Console.Write("Sisesta ruumi pikkus: ");
             int pikkus = int.Parse(Console.ReadLine());
 
@@ -52,6 +54,39 @@ namespace Kordamine_TARpv24
             int pindala = Osa1_funktsioonid.Remont(pikkus, laius);
 
             Console.WriteLine($"Põranda pindala on {pindala} ruutmeetrit.");
+
+            Console.WriteLine("Okei kas sina tahad remonti teha?");
+            string vastus = Console.ReadLine();
+            if (vastus.ToLower() == "jah")
+            {
+                Console.WriteLine("Mis on 1m hind");
+                float hind = float.Parse(Console.ReadLine());
+                float summa = pindala * hind;
+                Console.WriteLine($"Sinnu summa kokku on {summa:F2}: eurot remontiga");
+            }
+            else
+            {
+                Console.WriteLine("Sis ei ole remonti"); 
+            }
+
+
+
+            //4.
+            Console.WriteLine("Tere mis oli allahindlu hind?");
+            float allahind = float.Parse(Console.ReadLine());
+            Console.WriteLine("Okei kohe vattan mis on algus hind?");
+            float algus = (float)(allahind / 0.7);
+            Console.WriteLine($"Sinu algus hind on {algus} eurot/centi");
+
+
+            //5
+            Console.WriteLine("Mis on temperatuur ruumis");
+            int temp = int.Parse(Console.ReadLine());
+            string grad = Osa1_funktsioonid.Temperature(temp);
+            Console.WriteLine($"{grad}");
+
+            
+            
 
 
             //Console.WriteLine("Kui vana sa oled");
