@@ -121,7 +121,28 @@ namespace Kordamine_TARpv24
             }
             return grad;
         }
-        
+        public static string Pikkumine(int pikus)
+        {
+            string inim = "";
+            if (pikus  < 160)
+            {
+                inim = "väike";
+            }
+            else if(pikus > 160 && pikus < 180)
+            {
+                inim = "keskmine";
+            }
+            else if (pikus > 180 && pikus < 210)
+            {
+                inim = "suur";
+            }
+            else
+            {
+                inim = "Ei saab olla!";
+            }
+            return inim;
+        }
+
 
     }
     }

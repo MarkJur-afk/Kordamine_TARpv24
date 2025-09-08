@@ -4,7 +4,9 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
+using System.Collections;
 using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
 namespace Kordamine_TARpv24
 {
@@ -12,81 +14,148 @@ namespace Kordamine_TARpv24
     {
         public static void Main(string[] args)
         {
+            Random rnd = new Random();
+            Console.OutputEncoding = Encoding.UTF8;
+            //3. osa Masiivid, list, Kordused
+
+            List<string> nimed = new List<string>();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"{i + 1} Nimi: ");
+                nimed.Add(Console.ReadLine());
+            }
+            foreach (string nimi in nimed)
+            {
+                Console.WriteLine(nimi);
+            }
+
+            int[] arvud = new int[10];
+            int y = 0;
+            while (y < 10)
+            {
+                Console.WriteLine(y + 1);
+                arvud[y] = rnd.Next(1, 101);
+                y++;
+
+            }
+            foreach (int arv in arvud)
+            {
+                Console.WriteLine(arv);
+            }
+
+            List<Isik> isikud = new List<Isik>();
+            int j = 0;
+            do
+            {
+                Console.WriteLine(j + 1);
+                Isik isik = new Isik();
+                Console.WriteLine("Eesnimi: ");
+                isik.eesnimi = Console.ReadLine();
+                isikud.Add(isik);
+                j++;
+            } while (j < 10);
+            isikud.Sort((x, y) => x.eesnimi.CompareTo(y.eesnimi));
+            Console.WriteLine($"Kokku on {isikud.Count()} isikud");
+            foreach (Isik isik in isikud)
+            {                
+                isik.Prindi_andmed();
+            }
+            Console.WriteLine($"Kolmandal kohal on {isikud[2].eesnimi} isik");
+
+
+
+
+
+
+
+
+
             //1.
-            Console.WriteLine("Mis on sinu nimi");
-            string nimi = Console.ReadLine();
-            if (nimi.ToLower() == "juku")
-            {
-                Console.WriteLine("Kui vana sa oled");
-                int vanus = int.Parse(Console.ReadLine());
-                string hinn = Osa1_funktsioonid.Kino(vanus);
-                Console.WriteLine($"Sinu pilet on {hinn}");
-            }
-            else
-            {
-                Console.WriteLine("Mina pean Jukuga kino minna");
-            }
+            //Console.WriteLine("Mis on sinu nimi");
+            //string nimi = Console.ReadLine();
+            //if (nimi.ToLower() == "juku")
+            //{
+            //    Console.WriteLine("Kui vana sa oled");
+            //    int vanus = int.Parse(Console.ReadLine());
+            //    string hinn = Osa1_funktsioonid.Kino(vanus);
+            //    Console.WriteLine($"Sinu pilet on {hinn}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Mina pean Jukuga kino minna");
+            //}
 
 
 
-            //2.
-            Console.WriteLine("Mis on sinu nimi");
-            string nimi1 = Console.ReadLine();
-            Console.WriteLine("Aga mis on sinu nimi?");
-            string nimi2 = Console.ReadLine();
-            if (nimi1 == "Mark" || nimi2 == "Marek")
-            {
-                Console.WriteLine("Te olete pinginaabrid");
-            }
-            else
-            {
-                Console.WriteLine("te ei olete pinginaabrid");
-            }
+            ////2.
+            //Console.WriteLine("Mis on sinu nimi");
+            //string nimi1 = Console.ReadLine();
+            //Console.WriteLine("Aga mis on sinu nimi?");
+            //string nimi2 = Console.ReadLine();
+            //if (nimi1 == "Mark" || nimi2 == "Marek")
+            //{
+            //    Console.WriteLine("Te olete pinginaabrid");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("te ei olete pinginaabrid");
+            //}
 
 
-            //3.
-            Console.Write("Sisesta ruumi pikkus: ");
-            int pikkus = int.Parse(Console.ReadLine());
+            ////3.
+            //Console.Write("Sisesta ruumi pikkus: ");
+            //int pikkus = int.Parse(Console.ReadLine());
 
-            Console.Write("Sisesta ruumi laius: ");
-            int laius = int.Parse(Console.ReadLine());
+            //Console.Write("Sisesta ruumi laius: ");
+            //int laius = int.Parse(Console.ReadLine());
 
-            int pindala = Osa1_funktsioonid.Remont(pikkus, laius);
+            //int pindala = Osa1_funktsioonid.Remont(pikkus, laius);
 
-            Console.WriteLine($"Põranda pindala on {pindala} ruutmeetrit.");
+            //Console.WriteLine($"Põranda pindala on {pindala} ruutmeetrit.");
 
-            Console.WriteLine("Okei kas sina tahad remonti teha?");
-            string vastus = Console.ReadLine();
-            if (vastus.ToLower() == "jah")
-            {
-                Console.WriteLine("Mis on 1m hind");
-                float hind = float.Parse(Console.ReadLine());
-                float summa = pindala * hind;
-                Console.WriteLine($"Sinnu summa kokku on {summa:F2}: eurot remontiga");
-            }
-            else
-            {
-                Console.WriteLine("Sis ei ole remonti"); 
-            }
-
-
-
-            //4.
-            Console.WriteLine("Tere mis oli allahindlu hind?");
-            float allahind = float.Parse(Console.ReadLine());
-            Console.WriteLine("Okei kohe vattan mis on algus hind?");
-            float algus = (float)(allahind / 0.7);
-            Console.WriteLine($"Sinu algus hind on {algus} eurot/centi");
+            //Console.WriteLine("Okei kas sina tahad remonti teha?");
+            //string vastus = Console.ReadLine();
+            //if (vastus.ToLower() == "jah")
+            //{
+            //    Console.WriteLine("Mis on 1m hind");
+            //    float hind = float.Parse(Console.ReadLine());
+            //    float summa = pindala * hind;
+            //    Console.WriteLine($"Sinnu summa kokku on {summa:F2}: eurot remontiga");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Sis ei ole remonti"); 
+            //}
 
 
-            //5
-            Console.WriteLine("Mis on temperatuur ruumis");
-            int temp = int.Parse(Console.ReadLine());
-            string grad = Osa1_funktsioonid.Temperature(temp);
-            Console.WriteLine($"{grad}");
 
-            
-            
+            ////4.
+            //Console.WriteLine("Tere mis oli allahindlu hind?");
+            //float allahind = float.Parse(Console.ReadLine());
+            //Console.WriteLine("Okei kohe vattan mis on algus hind?");
+            //float algus = (float)(allahind / 0.7);
+            //Console.WriteLine($"Sinu algus hind on {algus} eurot/centi");
+
+
+            ////5
+            //Console.WriteLine("Mis on temperatuur ruumis");
+            //int temp = int.Parse(Console.ReadLine());
+            //string grad = Osa1_funktsioonid.Temperature(temp);
+            //Console.WriteLine($"{grad}");
+
+
+            ////6
+            //Console.WriteLine("Tere mis on sinu pikkus?");
+            //int pikus = int.Parse(Console.ReadLine());
+            //string inim = Osa1_funktsioonid.Pikkumine(pikus);
+            //Console.WriteLine($"Sina oled {inim}");
+
+            //7
+
+
+
+
+
 
 
             //Console.WriteLine("Kui vana sa oled");
